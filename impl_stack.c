@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 14:44:55 by mehernan          #+#    #+#             */
-/*   Updated: 2022/12/30 23:39:41 by mehernan         ###   ########.fr       */
+/*   Updated: 2022/12/31 19:37:55 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,13 @@ t_stack	*init_stack()
 	if(!save)
 		return(NULL);
 	save->size=0;
+	save->first = NULL;
 	return(save);
 }
 
-void push(t_stack *s, int value) //añade un elemento a la stack
+void	push(t_stack *s, int value) //añade un elemento a la stack
 {
-	t_elem *newelem;
+	t_elem	*newelem;
 	
 	newelem = malloc(sizeof(t_elem));
 	//if(!newelem)
@@ -37,9 +38,9 @@ void push(t_stack *s, int value) //añade un elemento a la stack
 	s->size++; //s suma size cada vez que haya un newelem evidentemente
 }
 
-void pop(t_stack *s)
+void	pop(t_stack *s)
 {
-	t_elem* first; // si,una estructura puede ser puntero
+	t_elem	*first; // si,una estructura puede ser puntero
 
 	first = s->first; //first es igual al primer elemento de la stack, chica lo guardas porque esto no es una statica 
 	s->first = first->next; //el first elemento de s es igual al siguiente elemento despues de first
@@ -47,41 +48,95 @@ void pop(t_stack *s)
 	s->size--; // menos menos porque acabas de hacer pop y quitando uno
 }
 
-int get_top(t_stack *s)
+int	get_top(t_stack *s)// funcion que hice para comprovar que el value se ponia en la primera posicion pero ya no uso, quizas la borre
 {
 	return(s->first->value);
 }
 
-void swap(t_stack *s1, t_stack *s2)
+void	swap(t_stack *s1, t_stack *s2)
 {
-	if(s1->size < 2 || s2->size < 2) return;
-	t_elem *temp = s1->first;
-	s1->first = s2->first;
-	s2->first = temp;
-	temp = s1->first->next;
-	s1->first->next = s2->first->next;
-	s2->first->next = temp;
-}
+	t_elem	*temp;
+	t_elem	*third;
 
-t_elem *get_penultimate_elem(t_stack *s)
+	if(s1->size < 2 || s2->size < 2) // no puede ser menor que 2 porque hay 2 elementos en la stack
+		return;
+	temp = s1->first; //temp ahora senala a first
+	third = s1->first->next->next;
+	s1->first = s1->first->next; //s1 first y s2 first apuntan al mismo sitio
+	s1->first->next = temp; //
+	s1->first->next->next = third;
+
+	// s1->first = 57
+	// s2->first = 46
+	// temp = s1->first 
+	// temp = 57
+	// s1->first = s2->first
+	// s1->first = 46
+	// s2->first = 46
+	// s2->first = temp
+	// s2->first = 57
+//	temp = s1->first->next;
+//	s1->first->next = s2->first->next;
+//	s2->first->next = temp;
+}
+/*
+t_elem	*get_penultimate_elem(t_stack *s)
 {
-	if(s->size < 2) return NULL;
-	t_elem * elem = s->first;
+	t_elem	*elem;
+
+	if(s->size < 2)
+		return NULL;
+	elem = s->first;
 	while(elem != NULL){
-		if(elem->next->next == NULL)return elem;
+		if(elem->next->next == NULL)
+			return elem;
 		elem = elem->next;
 	}
 	return NULL;
 }
 
-void rotate(t_stack *s)
+void	rotate(t_stack *s)
 {
-	if(s->size < 2) return;
-	t_elem *penultimate_elem = get_penultimate_elem(s);
-	t_elem *temp = s->first;
+	t_elem	*temp;
+	t_elem	*penultimate_elem;
+
+	if(s->size < 2)
+		return;
+	temp = s->first;
+	penultimate_elem = get_penultimate_elem(s);
 	s->first = penultimate_elem->next;
 	penultimate_elem->next = temp;
 	
 	s->first->next = penultimate_elem->next->next;
 	penultimate_elem->next->next = NULL;
+}
+*/
+
+t_elem	*get_penultimate_elem(t_stack *s)
+{
+	t_elem	*elem;
+
+	if (s->size < 2)
+		return (NULL);
+	elem = s->first;
+	while (elem != NULL){
+		if (elem->next->next == NULL)
+			return (elem);
+		elem = elem->next;
+	}
+	return (NULL);
+}
+
+void	rra(t_stack *s)
+{
+	t_elem	*temp;
+	t_elem	*penultimate_elem;
+
+	if (s->size < 2)
+		return;
+	temp = s->first;
+	penultimate_elem = get_penultimate_elem(s);
+	s->first = penultimate_elem->next;
+	s->first->next = temp;
+	penultimate_elem->next = NULL;
 }

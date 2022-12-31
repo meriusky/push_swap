@@ -6,11 +6,11 @@
 #    By: mehernan <mehernan@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/26 19:17:52 by mehernan          #+#    #+#              #
-#    Updated: 2022/12/26 19:19:14 by mehernan         ###   ########.fr        #
+#    Updated: 2022/12/31 19:38:57 by mehernan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =  push_swap//algo
+NAME =  push_swap
 
 CC = gcc
 
