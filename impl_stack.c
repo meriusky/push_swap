@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 14:44:55 by mehernan          #+#    #+#             */
-/*   Updated: 2022/12/31 19:37:55 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/01/07 14:15:16 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	push(t_stack *s, int value) //añade un elemento a la stack
 	t_elem	*newelem;
 	
 	newelem = malloc(sizeof(t_elem));
-	//if(!newelem)
+	//if(!newelem)         //NO QUITAR, comentado porque la funcion es VOID cuando no lo sea servira
 	//	return(NULL);
 	newelem->value = value; //value esta dentro de newelem
 	newelem->next = s->first; //el siguente elemento al que apunta newelem es el que era el primero en la stack
@@ -53,12 +53,12 @@ int	get_top(t_stack *s)// funcion que hice para comprovar que el value se ponia 
 	return(s->first->value);
 }
 
-void	swap(t_stack *s1, t_stack *s2)
+void	sa(t_stack *s1) //swap, intercambia los dos primeros elementos de A
 {
 	t_elem	*temp;
 	t_elem	*third;
 
-	if(s1->size < 2 || s2->size < 2) // no puede ser menor que 2 porque hay 2 elementos en la stack
+	if(s1->size < 2) // no puede ser menor que 2 porque hay 2 elementos en la stack
 		return;
 	temp = s1->first; //temp ahora senala a first
 	third = s1->first->next->next;
@@ -79,21 +79,6 @@ void	swap(t_stack *s1, t_stack *s2)
 //	s1->first->next = s2->first->next;
 //	s2->first->next = temp;
 }
-/*
-t_elem	*get_penultimate_elem(t_stack *s)
-{
-	t_elem	*elem;
-
-	if(s->size < 2)
-		return NULL;
-	elem = s->first;
-	while(elem != NULL){
-		if(elem->next->next == NULL)
-			return elem;
-		elem = elem->next;
-	}
-	return NULL;
-}
 
 void	rotate(t_stack *s)
 {
@@ -110,7 +95,6 @@ void	rotate(t_stack *s)
 	s->first->next = penultimate_elem->next->next;
 	penultimate_elem->next->next = NULL;
 }
-*/
 
 t_elem	*get_penultimate_elem(t_stack *s)
 {
@@ -119,7 +103,8 @@ t_elem	*get_penultimate_elem(t_stack *s)
 	if (s->size < 2)
 		return (NULL);
 	elem = s->first;
-	while (elem != NULL){
+	while (elem != NULL)
+	{
 		if (elem->next->next == NULL)
 			return (elem);
 		elem = elem->next;
@@ -127,7 +112,7 @@ t_elem	*get_penultimate_elem(t_stack *s)
 	return (NULL);
 }
 
-void	rra(t_stack *s)
+void	rra(t_stack *s) //rota el ultimo y lo pone arriba
 {
 	t_elem	*temp;
 	t_elem	*penultimate_elem;

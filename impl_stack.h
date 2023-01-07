@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:24:34 by mehernan          #+#    #+#             */
-/*   Updated: 2022/12/31 19:38:02 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/01/07 14:15:16 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_stack *init_stack();
 void push(t_stack *s, int value);
 void pop(t_stack *s);
 int get_top(t_stack *s);
-void swap(t_stack *s1, t_stack *s2);
+void sa(t_stack *s1);
 t_elem *get_penultimate_elem(t_stack *s);
 void rra(t_stack *s);
 

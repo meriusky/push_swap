@@ -6,15 +6,15 @@
 #    By: mehernan <mehernan@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/26 19:17:52 by mehernan          #+#    #+#              #
-#    Updated: 2022/12/31 19:38:57 by mehernan         ###   ########.fr        #
+#    Updated: 2023/01/07 12:46:25 by mehernan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =  push_swap
+NAME = push_swap
 
 CC = gcc
 
-SRCS = push_swap.c
+SRCS = impl_stack.c main.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -25,7 +25,7 @@ DEPS = $(SRCS:.c=.d)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar -rcs $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	rm -rf $(OBJS)
