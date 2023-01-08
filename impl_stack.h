@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:24:34 by mehernan          #+#    #+#             */
-/*   Updated: 2023/01/07 14:15:16 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/01/08 19:36:51 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ void pop(t_stack *s);
 int get_top(t_stack *s);
 void sa(t_stack *s1);
 t_elem *get_penultimate_elem(t_stack *s);
+void	ra(t_stack *s);
 void rra(t_stack *s);
 

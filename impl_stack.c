@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 14:44:55 by mehernan          #+#    #+#             */
-/*   Updated: 2023/01/07 14:15:16 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/01/08 19:35:56 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	sa(t_stack *s1) //swap, intercambia los dos primeros elementos de A
 //	s2->first->next = temp;
 }
 
-void	rotate(t_stack *s)
+void	ra(t_stack *s)
 {
 	t_elem	*temp;
 	t_elem	*penultimate_elem;

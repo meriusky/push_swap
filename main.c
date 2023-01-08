@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:15:51 by mehernan          #+#    #+#             */
-/*   Updated: 2023/01/07 14:15:16 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/01/08 20:24:23 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "impl_stack.h"
@@ -33,7 +33,8 @@ int main(int argc, char *argv[])
 {
 	t_stack *s2 = init_stack();
 
-	argc = 1;
+	if(argc == 1) //esto era argc = 1 pero hubo problema linux
+		return(0);
 	(void)argv;
 	
 	printf("TEST PUSH/POP\n");
@@ -85,8 +86,11 @@ int main(int argc, char *argv[])
 //	printf("%d\n", get_top(s2));
 	printf("TEST ROTATE\n");
 	printf("BEFORE ROTATE\n");
+	printf("S3\n");
 	print_stack(s3);
-	rotate(s3);
-	printf(
+	ra(s3);
+	printf("\n");
+	print_stack(s3);
+	
 
 }
