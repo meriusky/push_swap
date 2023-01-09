@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:15:51 by mehernan          #+#    #+#             */
-/*   Updated: 2023/01/08 20:24:23 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/01/09 20:08:24 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "impl_stack.h"
@@ -67,11 +67,12 @@ int main(int argc, char *argv[])
 	printf("\n");
 //	printf("%d\n", get_top(s2));
 //	printf("%d\n", get_top(s3));
+
 	printf("TEST REVERSE ROTATE\n");
 	printf("BEFORE REVERSE ROTATE\n");
 //	rra(s2);
 	print_stack(s3);
-	rra(s3);
+	rrb(s3);
 //	printf("S2\n");
 //	print_stack(s2);
 	printf("S3\n");
@@ -79,18 +80,62 @@ int main(int argc, char *argv[])
 	printf("\n");
 //	printf("%d\n", get_top(s2));
 //	rra(s2);
-	rra(s3);
+	rrb(s3);
 //	printf("S2\n");
 //	print_stack(s2);
 //	printf("\n");
 //	printf("%d\n", get_top(s2));
+
 	printf("TEST ROTATE\n");
 	printf("BEFORE ROTATE\n");
 	printf("S3\n");
 	print_stack(s3);
-	ra(s3);
+	rb(s3);
 	printf("\n");
 	print_stack(s3);
-	
 
+	printf("TEST SWAP A y B at the same time\n");
+	printf("BEFORE\n");
+	printf("S2\n");
+	print_stack(s2);
+	printf("\n");
+	printf("S3\n");
+	print_stack(s3);
+	ss(s2, s3);
+	printf("\n");
+	printf("S2\n");
+	print_stack(s2);
+	printf("\n");
+	printf("S3\n");
+	print_stack(s3);
+
+	printf("TEST ROTATE A y B at the same time\n");
+	printf("BEFORE\n");
+	printf("S2\n");
+	print_stack(s2);
+	printf("\n");
+	printf("S3\n");
+	print_stack(s3);
+	rr(s2, s3);
+	printf("\n");
+	printf("S2\n");
+	print_stack(s2);
+	printf("\n");
+	printf("S3\n");
+	print_stack(s3);
+
+	printf("TEST REVERSE ROTATE A y B at the same time\n");
+	printf("BEFORE\n");
+	printf("S2\n");
+	print_stack(s2);
+	printf("\n");
+	printf("S3\n");
+	print_stack(s3);
+	rrr(s2, s3);
+	printf("\n");
+	printf("S2\n");
+	print_stack(s2);
+	printf("\n");
+	printf("S3\n");
+	print_stack(s3);
 }
