@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:15:51 by mehernan          #+#    #+#             */
-/*   Updated: 2023/01/09 20:08:24 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:24:17 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "impl_stack.h"
@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
 	rrb(s3);
 //	printf("S2\n");
 //	print_stack(s2);
-	printf("S3\n");
+	printf("S3\n"); 
 	print_stack(s3);
 	printf("\n");
 //	printf("%d\n", get_top(s2));
@@ -137,5 +137,37 @@ int main(int argc, char *argv[])
 	print_stack(s2);
 	printf("\n");
 	printf("S3\n");
+	print_stack(s3);
+
+	printf("TEST PUSH A :first element of B at the top of A\n");
+	printf("BEFORE\n");
+	printf("STACK A\n");
+	print_stack(s2);
+	printf("\n");
+	printf("STACK B\n");
+	print_stack(s3);
+	pa(s2, s3);
+	printf("\n");
+	printf("AFTER\n");
+	printf("STACK A\n");
+	print_stack(s2);
+	printf("\n");
+	printf("STACK B\n");
+	print_stack(s3);
+
+	printf("TEST PUSH B :first element of A at the top of B\n");
+	printf("BEFORE\n");
+	printf("STACK A\n");
+	print_stack(s2);
+	printf("\n");
+	printf("STACK B\n");
+	print_stack(s3);
+	pb(s2, s3);
+	printf("\n");
+	printf("AFTER\n");
+	printf("STACK A\n");
+	print_stack(s2);
+	printf("\n");
+	printf("STACK B\n");
 	print_stack(s3);
 }

@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 14:44:55 by mehernan          #+#    #+#             */
-/*   Updated: 2023/01/09 20:08:24 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:20:27 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	sa(t_stack *s1) //swap, intercambia los dos primeros elementos de A
 	t_elem	*temp;
 	t_elem	*third;
 
-	if(s1->size < 2) // no puede ser menor que 2 porque hay 2 elementos en la stack
+	if(s1->size < 2) // no puede ser menor que 2 porque no puedes swap un elemento solo o 0
 		return;
 	temp = s1->first; //temp ahora senala a first
 	third = s1->first->next->next;
@@ -93,6 +93,18 @@ void	ss(t_stack *s1, t_stack *s2) //sa y sb a la vez
 	sa(s1);
 	sb(s2);
 }
+void	pa(t_stack *s1, t_stack *s2)// coge el primer elemento de B y lo pone en primera posicion de A
+{
+	t_elem	*temp;
+
+	if(s2->size == 0) // si no hay nada en B no queremos que haga nada
+		return;
+	temp = s2->first; //primero de todo guaardamos en temp el 1r elemento de B
+	s2->first = s2->first->next; // hacemos que en el puntero del 1r elemento de B senale al 2o
+	temp->next = s1->first; // hacemos que temp senale a next (que aun no hay nada)
+	s1->first = temp; // finalmente adjudicamos a temp la priemra posicion y como previamente hemos hecho que temp senale al siguiente esta todo hehco
+}
+
 void	ra(t_stack *s1)
 {
 	t_elem	*temp; //temp de temporal
@@ -105,6 +117,17 @@ void	ra(t_stack *s1)
 	s1->first = s1->first->next; //la primera caja ahora apunta a la segunda
 	penultimate_elem->next->next = temp; // temp debe ser el ultimo
 	penultimate_elem->next->next->next = NULL; // y ahora anadimos al ultimo de todo null
+}
+void	pb(t_stack *s1, t_stack *s2) // coge el primer elemento de A y lo pone en primera posicion de B
+{
+	t_elem	*temp;
+
+	if(s1->size == 0)
+		return;
+	temp = s1->first;
+	s1->first = s1->first->next;
+	temp->next = s2->first;
+	s2->first = temp;
 }
 void	rb(t_stack *s2)
 {
