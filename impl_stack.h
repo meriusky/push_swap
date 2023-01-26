@@ -38,3 +38,4 @@ void	rr(t_stack *s1, t_stack *s2);
 void	rra(t_stack *s1);
 void	rrb(t_stack *s2);
 void	rrr(t_stack *s1, t_stack *s2);
+int	check_num(int c);

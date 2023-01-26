@@ -29,13 +29,16 @@ void	print_stack(t_stack *s)
 	}
 }
 
-int main(int argc, char *argv[])
+//When you execute a C program, command line arguments are made available to the function main in two parameters, an argument count, conventionally called argc, and an argument vector, conventionally called argv. (Every C program is required to have an entry point named main.) argc is the number of arguments with which the program was invoked. argv is an array of pointers to character strings that contain the arguments, one per string. Since the command name itself is considered to be the first argument, or argv[0], the count is always at least one. Here is the declaration for main:
+
+int main(int argc, char *argv[]) //falata chequear si los argumentos son números y si no lo son mostrar error
 {
 	t_stack *s2 = init_stack();
 
-	if(argc == 1) //esto era argc = 1 pero hubo problema linux
+	if(argc < 3) //esto era argc = 1 pero hubo problema linux 
 		return(0);
-	(void)argv;
+	check_num(argv);
+//	(void)argv;
 	
 	printf("TEST PUSH/POP\n");
 
