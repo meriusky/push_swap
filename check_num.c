@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*   HEATHER MAL HECHO PONLO OTRA VEZ                     :::      ::::::::   */
+/*                                                        :::      ::::::::   */
 /*   check_num.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mehernan <mehernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 11:57:29 by mehernan          #+#    #+#             */
-/*   Updated: 2023/01/15 16:09:56 by mehernan         ###   ########.fr       */
+/*   Created: 2023/01/27 15:49:43 by mehernan          #+#    #+#             */
+/*   Updated: 2023/01/27 19:20:27 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "impl_stack.h"
+#include <stdio.h>
 
-int	check_num(int c)
+int	check_num(char *c[])
 {
-	if (((c < 48) || (c > 122)) || ((c > 57 && c < 65) || (c > 90 && c < 97)))
-		return (0);
-	else
-		return (1);
+	int	i;
+	int	j;
+
+	i = 1;
+	while (c[i] != 0)
+	{
+		j = 0;
+		while (c[i][j] != 0)
+		{
+			if (c[i][j] < '0' || c[i][j] > '9')
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
 }

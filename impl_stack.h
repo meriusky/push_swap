@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:24:34 by mehernan          #+#    #+#             */
-/*   Updated: 2023/01/10 15:22:05 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/01/27 19:20:27 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,4 @@ void	rr(t_stack *s1, t_stack *s2);
 void	rra(t_stack *s1);
 void	rrb(t_stack *s2);
 void	rrr(t_stack *s1, t_stack *s2);
-int	check_num(int c);
+int		check_num(char *c[]);
