@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:15:51 by mehernan          #+#    #+#             */
-/*   Updated: 2023/01/27 19:20:27 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/01/29 21:36:49 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "impl_stack.h"
@@ -37,6 +37,12 @@ int main(int argc, char *argv[]) //falata chequear si los argumentos son ints
 	if(check_num(argv) == 0)
 	{
 		printf("Only numbers are allowed\n");
+		printf("ERROR\n");
+		return (0);
+	}
+	if(check_int(argv) == 0)
+	{
+		printf("Just int size allowed\n");
 		printf("ERROR\n");
 		return (0);
 	}

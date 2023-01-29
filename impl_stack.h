@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:24:34 by mehernan          #+#    #+#             */
-/*   Updated: 2023/01/27 19:20:27 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/01/29 21:36:49 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,5 @@ void	rra(t_stack *s1);
 void	rrb(t_stack *s2);
 void	rrr(t_stack *s1, t_stack *s2);
 int		check_num(char *c[]);
+int		check_int(char *c[]);
+int		ft_strlen(char *s);
