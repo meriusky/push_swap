@@ -6,7 +6,7 @@
 #    By: mehernan <mehernan@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/26 19:17:52 by mehernan          #+#    #+#              #
-#    Updated: 2023/01/27 19:20:27 by mehernan         ###   ########.fr        #
+#    Updated: 2023/02/07 17:47:47 by mehernan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = push_swap
 
 CC = gcc
 
-SRCS = impl_stack.c main.c check_num.c
+SRCS = impl_stack.c main.c check_num.c converter.c
 
 OBJS = $(SRCS:.c=.o)
 

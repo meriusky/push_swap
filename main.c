@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:15:51 by mehernan          #+#    #+#             */
-/*   Updated: 2023/01/29 21:36:49 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/07 18:09:43 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "impl_stack.h"
@@ -50,14 +50,14 @@ int main(int argc, char *argv[]) //falata chequear si los argumentos son ints
 	
 	printf("TEST PUSH/POP\n");
 
-	push(s2, 23);
+	push(s2, converter(argv));//hacer while aqui para que pueda se char* y entrar en la funcion
 	printf("%d\n", get_top(s2));
 	pop(s2);
-	push(s2, 1);
+	push(s2, converter(argv));
 	printf("%d\n", get_top(s2));
-	push(s2, 2);
+	push(s2, converter(argv));
 	printf("%d\n", get_top(s2));
-	push(s2, 3);
+	push(s2, converter(argv));
 	printf("%d\n", get_top(s2));
 //	pop(s2);
 //	printf("%d\n", get_top(s2));
