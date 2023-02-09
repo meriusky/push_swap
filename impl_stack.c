@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 14:44:55 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/07 18:09:43 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/09 12:56:16 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,33 @@ t_stack	*init_stack()
 	save->first = NULL;
 	return(save);
 }
-void	push(t_stack *s, int value) //añade un elemento a la stack
+void	push(t_stack *s, int value) //añade un elemento a la stack//es necesario que sea al reves
 {
 	t_elem	*newelem;
-	
+	t_elem	*count;
+
 	newelem = malloc(sizeof(t_elem));
 	//if(!newelem)         //NO QUITAR, comentado porque la funcion es VOID cuando no lo sea servira
 	//	return(NULL);
-	newelem->value = value; //value esta dentro de newelem
+	newelem->next = NULL;// para  que next no tenga un valor erroneo, y vaya a algo de memoria que no debes usar
+	newelem->value = value;
+	if (s->first == NULL)
+		s->first = newelem;
+	else
+	{
+		count = s->first;
+		while (count->next != NULL)
+		{
+			count = count->next;
+		}
+		count->next = newelem;
+	}
+	s->size++;
+
+/*	newelem->value = value; //value esta dentro de newelem
 	newelem->next = s->first; //el siguente elemento al que apunta newelem es el que era el primero en la stack
 	s->first = newelem; //el first elemnto de s(que es la stack, porque la hemos declarado como t_stack) es newelem
-	s->size++; //s suma size cada vez que haya un newelem evidentemente
+	s->size++; //s suma size cada vez que haya un newelem evidentemente*/
 }
 void	pop(t_stack *s)
 {
@@ -45,10 +61,12 @@ void	pop(t_stack *s)
 	free(first); //hacemos free porque como ahora el first es el antiguo segundo elemento el primero primero está ahí en ningún sitio. (recuerda que las flechas no son =)
 	s->size--; // menos menos porque acabas de hacer pop y quitando uno
 }
+/*
 int	get_top(t_stack *s)// funcion que hice para comprovar que el value se ponia en la primera posicion pero ya no uso, quizas la borre
 {
 	return(s->first->value);
 }
+*/
 void	sa(t_stack *s1) //swap, intercambia los dos primeros elementos de A
 {
 	t_elem	*temp;

@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:49:43 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/07 18:02:51 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/09 12:56:11 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "impl_stack.h"
@@ -23,7 +23,7 @@ int	check_num(char *c[])
 		j = 0;
 		while (c[i][j] != 0)
 		{
-			if (c[i][j] < '0' || c[i][j] > '9')
+			if ((c[i][j] < '0' || c[i][j] > '9') && c[i][j] != 45)
 				return (0);
 			j++;
 		}
@@ -31,6 +31,26 @@ int	check_num(char *c[])
 	}
 	return (1);
 }
+int	check_dplnum(char *c[])
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	while (c[i] != NULL)
+	{
+		j = 0;
+		while ([i][j] != 0);
+		{
+			if (c[i][j] == c[i][j] + 1)
+				return (0)
+			j++;
+		}
+		i++
+	}
+	return (1);
+}
+
 int	check_int(char *c[])//result = result * 10 + str[x]
 {
 	long check;

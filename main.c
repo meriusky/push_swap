@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:15:51 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/07 18:09:43 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/09 12:56:13 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "impl_stack.h"
@@ -28,7 +28,7 @@ void	print_stack(t_stack *s)
 		elem = elem->next;
 	}
 }
-int main(int argc, char *argv[]) //falata chequear si los argumentos son ints
+int main(int argc, char *argv[]) //falta que coja negativos y no duplicados
 {
 	t_stack *s2 = init_stack();
 
@@ -49,63 +49,72 @@ int main(int argc, char *argv[]) //falata chequear si los argumentos son ints
 //	(void)argv;
 	
 	printf("TEST PUSH/POP\n");
+	int i;
 
-	push(s2, converter(argv));//hacer while aqui para que pueda se char* y entrar en la funcion
-	printf("%d\n", get_top(s2));
-	pop(s2);
-	push(s2, converter(argv));
-	printf("%d\n", get_top(s2));
-	push(s2, converter(argv));
-	printf("%d\n", get_top(s2));
-	push(s2, converter(argv));
-	printf("%d\n", get_top(s2));
+	i = 1;
+	while (argv[i] != NULL)
+	{
+		push(s2, converter(argv[i]));
+		i++;
+	}
+	print_stack(s2);
+//	printf("%d\n", get_top(s2));
 //	pop(s2);
 //	printf("%d\n", get_top(s2));
-	
+//	pop(s2);
+//	printf("%d\n", get_top(s2));
+	printf("\n");
 	printf("TEST SWAP\n");
 	t_stack *s3 = init_stack();
 	push(s3, 4);
-	push(s3, 5);
-	push(s3, 6);
-	push(s3, 7);
-	printf("BEFORE SWAP\n");
+//	push(s3, 5);
+//	push(s3, 6);
+//	push(s3, 7);
+	printf("BEFORE SWAP above AFTER SWAP below--------\n");
 //	print_stack(s2);
-	sa(s3);
+	sa(s2);
 	printf("S2\n");
 	print_stack(s2);
+	printf("\n");
 	printf("S3\n");
 	print_stack(s3);
 	printf("\n");
 //	printf("%d\n", get_top(s2));
 //	printf("%d\n", get_top(s3));
-
-	printf("TEST REVERSE ROTATE\n");
+	printf("TEST REVERSE ROTATE--------\n");
 	printf("BEFORE REVERSE ROTATE\n");
 //	rra(s2);
-	print_stack(s3);
-	rrb(s3);
-//	printf("S2\n");
-//	print_stack(s2);
+	print_stack(s2);
+	printf("AFTER REVERSE ROTATE\n");
+	rra(s2);
+	printf("S2\n");
+	print_stack(s2);
 	printf("S3\n"); 
 	print_stack(s3);
 	printf("\n");
 //	printf("%d\n", get_top(s2));
-//	rra(s2);
-	rrb(s3);
+//	rrb(s3);
 //	printf("S2\n");
 //	print_stack(s2);
 //	printf("\n");
 //	printf("%d\n", get_top(s2));
+	printf("\n");
 
-	printf("TEST ROTATE\n");
+	printf("TEST ROTATE--------\n");
 	printf("BEFORE ROTATE\n");
+	printf("S2\n");
+	print_stack(s2);
+//	print_stack(s3);
+	printf("AFTER ROTATE\n");
+	printf("S2\n");
+	ra(s2);
+	print_stack(s2);
+	printf("\n");
 	printf("S3\n");
 	print_stack(s3);
-	rb(s3);
 	printf("\n");
-	print_stack(s3);
 
-	printf("TEST SWAP A y B at the same time\n");
+	printf("TEST SWAP A y B-------- at the same time\n");
 	printf("BEFORE\n");
 	printf("S2\n");
 	print_stack(s2);
@@ -114,19 +123,22 @@ int main(int argc, char *argv[]) //falata chequear si los argumentos son ints
 	print_stack(s3);
 	ss(s2, s3);
 	printf("\n");
+	printf("AFTER\n");
 	printf("S2\n");
 	print_stack(s2);
 	printf("\n");
 	printf("S3\n");
 	print_stack(s3);
+	printf("\n");
 
-	printf("TEST ROTATE A y B at the same time\n");
+	printf("TEST ROTATE A y B-------- at the same time\n");
 	printf("BEFORE\n");
 	printf("S2\n");
 	print_stack(s2);
 	printf("\n");
 	printf("S3\n");
 	print_stack(s3);
+	printf("AFTER\n");
 	rr(s2, s3);
 	printf("\n");
 	printf("S2\n");
@@ -134,14 +146,18 @@ int main(int argc, char *argv[]) //falata chequear si los argumentos son ints
 	printf("\n");
 	printf("S3\n");
 	print_stack(s3);
+	printf("\n");
 
-	printf("TEST REVERSE ROTATE A y B at the same time\n");
+	printf("TEST REVERSE ROTATE A y B-------- at the same time\n");
 	printf("BEFORE\n");
+	printf("\n");
 	printf("S2\n");
 	print_stack(s2);
 	printf("\n");
 	printf("S3\n");
 	print_stack(s3);
+	printf("\n");
+	printf("AFTER\n");
 	rrr(s2, s3);
 	printf("\n");
 	printf("S2\n");
@@ -149,8 +165,9 @@ int main(int argc, char *argv[]) //falata chequear si los argumentos son ints
 	printf("\n");
 	printf("S3\n");
 	print_stack(s3);
+	printf("\n");
 
-	printf("TEST PUSH A :first element of B at the top of A\n");
+	printf("TEST PUSH A--------first element of B at the top of A\n");
 	printf("BEFORE\n");
 	printf("STACK A\n");
 	print_stack(s2);
@@ -165,8 +182,9 @@ int main(int argc, char *argv[]) //falata chequear si los argumentos son ints
 	printf("\n");
 	printf("STACK B\n");
 	print_stack(s3);
+	printf("\n");
 
-	printf("TEST PUSH B :first element of A at the top of B\n");
+	printf("TEST PUSH B--------first element of A at the top of B\n");
 	printf("BEFORE\n");
 	printf("STACK A\n");
 	print_stack(s2);
