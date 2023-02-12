@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:49:43 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/09 12:56:11 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/12 20:10:07 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "impl_stack.h"
@@ -31,6 +31,7 @@ int	check_num(char *c[])
 	}
 	return (1);
 }
+
 int	check_dplnum(char *c[])
 {
 	int	i;
@@ -39,14 +40,14 @@ int	check_dplnum(char *c[])
 	i = 1;
 	while (c[i] != NULL)
 	{
-		j = 0;
-		while ([i][j] != 0);
+		j = i + 1;
+		while (c[j] != NULL)
 		{
-			if (c[i][j] == c[i][j] + 1)
-				return (0)
+			if(ft_atoi(c[i]) == ft_atoi(c[j]))
+				return (0);
 			j++;
 		}
-		i++
+		i++;
 	}
 	return (1);
 }
@@ -75,6 +76,32 @@ int	check_int(char *c[])//result = result * 10 + str[x]
 	}
 	return (1);
 }
+int	ft_atoi(const char *str)
+{
+	int	count;
+	int	num;
+	int	sign;
+
+	count = 0;
+	num = 0;
+	sign = 1;
+	while (str[count] == '\t' || str[count] == '\f' || str[count] == '\n'
+		|| str[count] == '\r' || str[count] == '\v' || str[count] == ' ')
+		count++;
+	if (str[count] == '-' || str[count] == '+')
+	{
+		if (str[count] == '-')
+			sign *= -1;
+		count++;
+	}
+	while (str[count] >= '0' && str[count] <= '9')
+	{
+		num = (num * 10) + (str[count] - '0');
+		count++;
+	}
+	return (num * sign);
+}
+
 int	ft_strlen(char *s)
 {
 	int	i;

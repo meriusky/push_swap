@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:24:34 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/09 12:56:19 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/12 20:10:07 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,3 +42,5 @@ int		check_num(char *c[]);
 int		check_int(char *c[]);
 int		ft_strlen(char *s);
 int		converter(char str[]);
+int		check_dplnum(char *c[]);
+int		ft_atoi(const char *str);

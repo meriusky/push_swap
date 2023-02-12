@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:15:51 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/09 12:56:13 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/12 20:10:07 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "impl_stack.h"
@@ -43,6 +43,12 @@ int main(int argc, char *argv[]) //falta que coja negativos y no duplicados
 	if(check_int(argv) == 0)
 	{
 		printf("Just int size allowed\n");
+		printf("ERROR\n");
+		return (0);
+	}
+	if(check_dplnum(argv) == 0)
+	{
+		printf("Duplicate numbers not allowed\n");
 		printf("ERROR\n");
 		return (0);
 	}
