@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 14:44:55 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/12 20:10:07 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/13 21:38:56 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_stack	*init_stack()
 	save->first = NULL;
 	return(save);
 }
+//Todas las funciones son void, pero puede que lo dejen de ser
 void	push(t_stack *s, int value) //añade un elemento a la stack//es necesario que sea al reves
 {
 	t_elem	*newelem;

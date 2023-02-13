@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:15:51 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/12 20:10:07 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/13 21:38:56 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "impl_stack.h"
@@ -28,12 +28,14 @@ void	print_stack(t_stack *s)
 		elem = elem->next;
 	}
 }
-int main(int argc, char *argv[]) //falta que coja negativos y no duplicados
+int main(int argc, char *argv[]) //puede que la primera parte de esta funcio vaya a impl_stack.c
 {
-	t_stack *s2 = init_stack();
-
 	if(argc < 2) //esto era argc = 1 pero hubo problema linux 
+	{
+		printf("ERROR\n");
+		printf("less that to numbers\n");
 		return(0);
+	}
 	if(check_num(argv) == 0)
 	{
 		printf("Only numbers are allowed\n");
@@ -52,9 +54,13 @@ int main(int argc, char *argv[]) //falta que coja negativos y no duplicados
 		printf("ERROR\n");
 		return (0);
 	}
+	t_stack *s2 = init_stack();//antes estaba al prinipio, pero para ahorrar memoria es mejor comprobar todo y luego iniciar la stack
+/*	if(argc - 1 == 2)//esto he pensado en meterlo dentro de sorting pero veamos como queda aqui
+	{
+		two_num(argv);
+	}*/
+//FIN PRIMERA PARTE
 //	(void)argv;
-	
-	printf("TEST PUSH/POP\n");
 	int i;
 
 	i = 1;
@@ -63,7 +69,11 @@ int main(int argc, char *argv[]) //falta que coja negativos y no duplicados
 		push(s2, converter(argv[i]));
 		i++;
 	}
-	print_stack(s2);
+	printf("TEST PUSH/POP\n");
+	s2 = sorted_check(argc, s2);
+	if(s2 != NULL)
+		print_stack(s2);
+//	print_stack(s2);
 //	printf("%d\n", get_top(s2));
 //	pop(s2);
 //	printf("%d\n", get_top(s2));
@@ -77,7 +87,7 @@ int main(int argc, char *argv[]) //falta que coja negativos y no duplicados
 //	push(s3, 6);
 //	push(s3, 7);
 	printf("BEFORE SWAP above AFTER SWAP below--------\n");
-//	print_stack(s2);
+	print_stack(s2);
 	sa(s2);
 	printf("S2\n");
 	print_stack(s2);
