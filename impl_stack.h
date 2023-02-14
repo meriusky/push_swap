@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:24:34 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/13 21:38:56 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/14 19:25:26 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ int		ft_strlen(char *s);
 int		converter(char str[]);
 int		check_dplnum(char *c[]);
 int		ft_atoi(const char *str);
-t_stack	*sorted_check(int argc, t_stack *s2);
-t_stack	*sorting(int argc, t_stack *s2);
+int	sorted_check(int argc, t_stack **s2);
+t_stack	**sorting(int argc, t_stack **s2);
 t_stack	*two_num(t_stack *s2);
