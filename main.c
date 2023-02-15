@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:15:51 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/14 19:26:37 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/15 19:56:20 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "impl_stack.h"
@@ -55,24 +55,24 @@ int main(int argc, char *argv[]) //puede que la primera parte de esta funcio vay
 		return (0);
 	}
 	t_stack *s2 = init_stack();//antes estaba al prinipio, pero para ahorrar memoria es mejor comprobar todo y luego iniciar la stack
-//FIN PRIMERA PARTE
-//	(void)argv;
+//PORQUE HACEMOS ESTO? si la stack esta ordenada tenemos que ostrarla sin ningun cambio. Ahora mismo, la stack esta vacia, asi que haremos push con los argv. 
 	int i;
 
 	i = 1;
-	while (argv[i] != NULL)
+	while (argv[i] != NULL)//Hacemos while para poder paras un * en vez de doble**, para que lo pase a int
 	{
 		push(s2, converter(argv[i]));
 		i++;
 	}
-	printf("TEST PUSH/POP\n");
-	int	res;
-	res = sorted_check(argc, &s2);
-	if (!res)
+//	printf("TEST PUSH/POP\n");
+	if (!sorted_check(argc, &s2))
 	{
+		printf("ya estaban ordenados\n");
 		print_stack(s2);
 		return (0);
 	}
+	print_stack(s2);
+//FIN DE LA PRIMERA PARTE7
 /*
 	s2 = sorted_check(argc, s2);
 	if(s2 != NULL)
@@ -84,7 +84,7 @@ int main(int argc, char *argv[]) //puede que la primera parte de esta funcio vay
 //	printf("%d\n", get_top(s2));
 //	pop(s2);
 //	printf("%d\n", get_top(s2));
-	printf("\n");
+/*	printf("\n");
 	printf("TEST SWAP\n");
 	t_stack *s3 = init_stack();
 	push(s3, 4);
@@ -219,5 +219,5 @@ int main(int argc, char *argv[]) //puede que la primera parte de esta funcio vay
 	print_stack(s2);
 	printf("\n");
 	printf("STACK B\n");
-	print_stack(s3);
+	print_stack(s3);*/
 }

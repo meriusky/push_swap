@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 14:44:55 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/13 21:38:56 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/15 19:56:20 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	sb(t_stack *s2) // lo mismo que sa
 	third = s2->first->next->next;
 	s2->first = s2->first->next;
 	s2->first->next = temp;
-	s2->first->next->next = third;
+	s2->first->next->next = third;/Users/mehernan/.TemporaryItems/folders.101339/TemporaryItems/\(A\ Document\ Being\ Saved\ By\ screencaptureui\)/Screen\ Shot\ 2023-02-15\ at\ 7.00.07\ PM.png 
 }
 void	ss(t_stack *s1, t_stack *s2) //sa y sb a la vez
 {

@@ -6,10 +6,11 @@
 /*   By: mehernan <mehernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 17:02:22 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/08 14:39:36 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/15 15:38:04 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//Funcion usada para convertirn un * en un int, devuelve el numero int
 int	converter(char str[])// la i no ha sido muy buena idea, creo que no es asi
 {
 	int	count;
