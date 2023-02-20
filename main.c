@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:15:51 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/15 19:56:20 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/20 19:02:18 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "impl_stack.h"
@@ -55,6 +55,8 @@ int main(int argc, char *argv[]) //puede que la primera parte de esta funcio vay
 		return (0);
 	}
 	t_stack *s2 = init_stack();//antes estaba al prinipio, pero para ahorrar memoria es mejor comprobar todo y luego iniciar la stack
+// 	t_stack *b = init_stack();// debo iniciar una stack b para usarla en el four_num, ya veremos cmo
+
 //PORQUE HACEMOS ESTO? si la stack esta ordenada tenemos que ostrarla sin ningun cambio. Ahora mismo, la stack esta vacia, asi que haremos push con los argv. 
 	int i;
 
@@ -72,12 +74,7 @@ int main(int argc, char *argv[]) //puede que la primera parte de esta funcio vay
 		return (0);
 	}
 	print_stack(s2);
-//FIN DE LA PRIMERA PARTE7
-/*
-	s2 = sorted_check(argc, s2);
-	if(s2 != NULL)
-		print_stack(s2);
-*/
+//FIN DE LA PRIMERA PARTE
 //	print_stack(s2);
 //	printf("%d\n", get_top(s2));
 //	pop(s2);

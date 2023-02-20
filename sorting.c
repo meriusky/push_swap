@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:41:15 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/15 19:56:20 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/20 19:02:56 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ void	sorting(int argc, t_stack **s2)
 		*s2 = two_num(*s2);
 	if(argc - 1 == 3)
 		*s2 = three_num(*s2);
-/*	if(argc - 1 == 4)
-		four_num(s2);
-	if(argc - 1 == 5)
+	if(argc - 1 == 4)
+		*s2 = four_num(*s2);
+/*	if(argc - 1 == 5)
 		five_num(s2);
 */
 }
@@ -57,6 +57,7 @@ t_stack		*three_num(t_stack *s2)
 	p1 = s2->first;
 	p2 = s2->first->next;
 	p3 = s2->first->next->next;
+	printf("entro en three\n");
 	if(p1->value < p2->value && p1->value < p3->value)
 	{
 		sa(s2);
@@ -70,17 +71,73 @@ t_stack		*three_num(t_stack *s2)
 			ra(s2);
 	}
 	else
-		s2 = lastp_little(s2, p1, p2);
+		s2 = lastp_small(s2, p1, p2);
 	return (s2);
 }
-t_stack	*lastp_little(t_stack *s2, t_elem *p1, t_elem *p2)
+t_stack	*lastp_small(t_stack *s2, t_elem *p1, t_elem *p2)
 {
 	if (p1->value < p2->value)
-			rra(s2);
+		rra(s2);
 		else
 		{
 			sa(s2);
 			rra(s2);
 		}
+	return(s2);
+}
+t_stack		*four_num(t_stack *s2)//busco el pequeno y lo paso a un atsack b, la stack b la estoy creando en el main
+{
+	t_elem *p1;
+	t_elem *p2;
+	t_elem *p3;
+	t_elem *p4;
+
+	p1 = s2->first;
+	p2 = s2->first->next;
+	p3 = s2->first->next->next;
+	p4 = s2->first->next->next->next;
+
+	if(p1->value < p2->value && p1->value < p3->value && p1->value < p4->value)
+		pb(s2, B);
+	if(p2->value < p1->value && p2->value < p3->value && p2->value < p4->value) 
+	{
+		sa(s2);
+		pb(s2, B);
+	}
+	if(p3->value < p1->value && p3->value < p2->value && p3->value < p4->value)
+	{
+		rra(s2);
+		rra(s2);
+		pb(s2, B);
+	}
+	else
+	{
+		rra(s2);
+		pb(s2, B);
+	}
+	s2 = three_num(s2);
+	pa(s2, B);
+/*	if (p4->value > p1->value && p4->value > p2->value && p4->value > p3->value)
+		return(s2);
+	else
+	{
+		if(p4->value > p1->value && p4->value > p2->value && p4->value < p3->value)
+		{
+			printf("1r if del else\n");
+			ra(s2);
+			ra(s2);
+			sa(s2);
+			ra(s2);
+			ra(s2);
+		}
+		else if(p4->value > p1->value && p4->value < p2->value && p4->value < p3->value)
+		{
+			printf("2o if del else\n");
+			sa(s2);
+			ra(s2);
+		}
+		else
+			ra(s2);
+	}*/
 	return(s2);
 }

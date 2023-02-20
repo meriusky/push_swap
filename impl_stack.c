@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 14:44:55 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/15 19:56:20 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/20 18:19:01 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	sb(t_stack *s2) // lo mismo que sa
 	third = s2->first->next->next;
 	s2->first = s2->first->next;
 	s2->first->next = temp;
-	s2->first->next->next = third;/Users/mehernan/.TemporaryItems/folders.101339/TemporaryItems/\(A\ Document\ Being\ Saved\ By\ screencaptureui\)/Screen\ Shot\ 2023-02-15\ at\ 7.00.07\ PM.png 
+	s2->first->next->next = third; 
 }
 void	ss(t_stack *s1, t_stack *s2) //sa y sb a la vez
 {
@@ -124,7 +124,7 @@ void	pa(t_stack *s1, t_stack *s2)// coge el primer elemento de B y lo pone en pr
 	s1->first = temp; // finalmente adjudicamos a temp la priemra posicion y como previamente hemos hecho que temp senale al siguiente esta todo hehco
 }
 
-void	ra(t_stack *s1)
+void	ra(t_stack *s1)//sube todos los numeros una posicioon y el primero lo pone el ultimo
 {
 	t_elem	*temp; //temp de temporal
 	t_elem	*penultimate_elem;

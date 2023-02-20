@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:24:34 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/15 19:56:20 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/20 19:02:18 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,5 @@ int		sorted_check(int argc, t_stack **s2);
 void	sorting(int argc, t_stack **s2);
 t_stack	*two_num(t_stack *s2);
 t_stack	*three_num(t_stack *s2);
-t_stack	*lastp_little(t_stack *s2, t_elem *p1, t_elem *p2);
+t_stack	*lastp_small(t_stack *s2, t_elem *p1, t_elem *p2);
+t_stack	*four_num(t_stack *s2);
