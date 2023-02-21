@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:49:43 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/12 20:10:07 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/21 16:11:10 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "impl_stack.h"
@@ -58,10 +58,10 @@ int	check_int(char *c[])//result = result * 10 + str[x]
 	int count;
 	int i;
 
-	check = 0;
 	i = 1;
 	while (c[i] != NULL)
 	{
+		check = 0;
 		count = 0;
 		while (c[i][count] != 0)
 		{

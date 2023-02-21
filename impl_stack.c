@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 14:44:55 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/20 18:19:01 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/21 17:34:43 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,8 @@ void	pa(t_stack *s1, t_stack *s2)// coge el primer elemento de B y lo pone en pr
 	s2->first = s2->first->next; // hacemos que en el puntero del 1r elemento de B senale al 2o
 	temp->next = s1->first; // hacemos que temp senale a next (que aun no hay nada)
 	s1->first = temp; // finalmente adjudicamos a temp la priemra posicion y como previamente hemos hecho que temp senale al siguiente esta todo hehco
+	s1->size += 1;
+	s2->size -= 1;
 }
 
 void	ra(t_stack *s1)//sube todos los numeros una posicioon y el primero lo pone el ultimo
@@ -147,7 +149,10 @@ void	pb(t_stack *s1, t_stack *s2) // coge el primer elemento de A y lo pone en p
 	s1->first = s1->first->next;
 	temp->next = s2->first;
 	s2->first = temp;
+	s1->size -= 1;
+	s2->size += 1;
 }
+
 void	rb(t_stack *s2)
 {
 	t_elem	*temp;

@@ -6,11 +6,10 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:15:51 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/20 19:02:18 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/21 17:34:43 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "impl_stack.h"
-#include <stdio.h>
 
 void	print_stack(t_stack *s)
 {
@@ -55,7 +54,7 @@ int main(int argc, char *argv[]) //puede que la primera parte de esta funcio vay
 		return (0);
 	}
 	t_stack *s2 = init_stack();//antes estaba al prinipio, pero para ahorrar memoria es mejor comprobar todo y luego iniciar la stack
-// 	t_stack *b = init_stack();// debo iniciar una stack b para usarla en el four_num, ya veremos cmo
+ 	t_stack *b = init_stack();// debo iniciar una stack b para usarla en el four_num, ya veremos cmo
 
 //PORQUE HACEMOS ESTO? si la stack esta ordenada tenemos que ostrarla sin ningun cambio. Ahora mismo, la stack esta vacia, asi que haremos push con los argv. 
 	int i;
@@ -67,7 +66,7 @@ int main(int argc, char *argv[]) //puede que la primera parte de esta funcio vay
 		i++;
 	}
 //	printf("TEST PUSH/POP\n");
-	if (!sorted_check(argc, &s2))
+	if (!sorted_check(argc, &s2, &b))
 	{
 		printf("ya estaban ordenados\n");
 		print_stack(s2);

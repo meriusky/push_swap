@@ -6,9 +6,11 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:24:34 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/20 19:02:18 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/21 17:25:36 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 typedef struct s_elem
 {
@@ -23,6 +25,7 @@ typedef struct s_stack
 }t_stack;
 
 t_stack *init_stack();
+void	print_stack(t_stack *s);
 void	push(t_stack *s, int value);
 void	pop(t_stack *s);
 int		get_top(t_stack *s);
@@ -44,9 +47,10 @@ int		ft_strlen(char *s);
 int		converter(char str[]);
 int		check_dplnum(char *c[]);
 int		ft_atoi(const char *str);
-int		sorted_check(int argc, t_stack **s2);
-void	sorting(int argc, t_stack **s2);
+int		sorted_check(int argc, t_stack **s2, t_stack **b);
+void	sorting(int argc, t_stack **s2, t_stack **b);
 t_stack	*two_num(t_stack *s2);
 t_stack	*three_num(t_stack *s2);
-t_stack	*lastp_small(t_stack *s2, t_elem *p1, t_elem *p2);
-t_stack	*four_num(t_stack *s2);
+t_stack	*three_num_2ndpart(t_stack *s2, t_elem *p1, t_elem *p2, t_elem *p3);
+t_stack	*four_num(t_stack *s2, t_stack *b);
+t_stack	*four_num_2ndpart(t_stack *s2, t_stack *b);
