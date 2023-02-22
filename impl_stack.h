@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:24:34 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/21 17:25:36 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/22 11:09:34 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,3 +54,6 @@ t_stack	*three_num(t_stack *s2);
 t_stack	*three_num_2ndpart(t_stack *s2, t_elem *p1, t_elem *p2, t_elem *p3);
 t_stack	*four_num(t_stack *s2, t_stack *b);
 t_stack	*four_num_2ndpart(t_stack *s2, t_stack *b);
+t_stack	*five_num(t_stack *s2, t_stack *b);
+t_stack	*five_num_2ndpart(t_stack *s2, t_stack *b);
+t_stack	*five_num_3rdpart(t_stack *s2, t_stack *b);

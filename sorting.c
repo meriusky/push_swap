@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:41:15 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/21 17:34:43 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/22 12:13:57 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,8 @@ void	sorting(int argc, t_stack **s2, t_stack **b)
 		*s2 = three_num(*s2);
 	if(argc - 1 == 4)
 		*s2 = four_num(*s2, *b);
-/*	if(argc - 1 == 5)
-		five_num(s2);
-*/
+	if(argc - 1 == 5)
+		*s2 = five_num(*s2, *b);
 }
 
 t_stack		*two_num(t_stack *s2)
@@ -111,20 +110,9 @@ t_stack		*four_num(t_stack *s2, t_stack *b)//busco el pequeno y lo paso a un ats
 	}
 	else
 		s2 = four_num_2ndpart(s2, b);
-/*	else if(p3->value < p1->value && p3->value < p2->value && p3->value < p4->value)
-	{
-		rra(s2);
-		rra(s2);
-		pb(s2, b);
-	}
-	else
-	{
-		rra(s2);
-		pb(s2, b);
-	}
 	s2 = three_num(s2);
 	pa(s2, b);
-*/	return(s2);
+	return(s2);
 }
 t_stack		*four_num_2ndpart(t_stack *s2, t_stack *b)
 {
@@ -149,6 +137,85 @@ t_stack		*four_num_2ndpart(t_stack *s2, t_stack *b)
 		pb(s2, b);
 	}
 	s2 = three_num(s2);
+	pa(s2, b);
+	return(s2);
+}
+t_stack		*five_num(t_stack *s2, t_stack *b)
+{
+	t_elem *p1;
+	t_elem *p2;
+	t_elem *p3;
+	t_elem *p4;
+	t_elem *p5;
+
+	p1 = s2->first;
+	p2 = s2->first->next;
+	p3 = s2->first->next->next;
+	p4 = s2->first->next->next->next;
+	p5 = s2->first->next->next->next->next;
+	if(p1->value < p2->value && p1->value < p3->value && p1->value < p4->value && p1->value < p5->value)
+		pb(s2, b);
+	else if(p2->value < p1->value && p2->value < p3->value && p2->value < p4->value && p2->value < p5->value)
+	{
+		sa(s2);
+		pb(s2, b);
+	}
+	else
+		s2 = five_num_2ndpart(s2, b);
+	s2 = four_num(s2, b);
+	pa(s2, b);
+	return(s2);
+}
+t_stack		*five_num_2ndpart(t_stack *s2, t_stack *b)
+{
+	t_elem *p1;
+	t_elem *p2;
+	t_elem *p3;
+	t_elem *p4;
+	t_elem *p5;
+
+	p1 = s2->first;
+	p2 = s2->first->next;
+	p3 = s2->first->next->next;
+	p4 = s2->first->next->next->next;
+	p5 = s2->first->next->next->next->next;
+	if(p3->value < p1->value && p3->value < p2->value && p3->value < p4->value && p3->value < p5->value)
+	{
+		ra(s2);
+		ra(s2);
+		pb(s2, b);
+	}
+	else
+		s2 = five_num_3rdpart(s2, b);
+	s2 = four_num(s2, b);
+	pa(s2, b);
+	return(s2);
+}
+t_stack		*five_num_3rdpart(t_stack *s2, t_stack *b)
+{
+	t_elem *p1;
+	t_elem *p2;
+	t_elem *p3;
+	t_elem *p4;
+	t_elem *p5;
+
+	p1 = s2->first;
+	p2 = s2->first->next;
+	p3 = s2->first->next->next;
+	p4 = s2->first->next->next->next;
+	p5 = s2->first->next->next->next->next;
+	 if(p4->value < p1->value && p4->value < p2->value && p4->value < p3->value && p4->value < p5->value)
+	{
+		rra(s2);
+		rra(s2);
+		pb(s2, b);
+	}
+	else
+	{
+		rra(s2);
+		pb(s2, b);
+	}
+	s2 = four_num(s2, b);
 	pa(s2, b);
 	return(s2);
 }

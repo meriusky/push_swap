@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:15:51 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/21 17:34:43 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/02/22 12:12:02 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "impl_stack.h"
@@ -29,12 +29,8 @@ void	print_stack(t_stack *s)
 }
 int main(int argc, char *argv[]) //puede que la primera parte de esta funcio vaya a impl_stack.c
 {
-	if(argc < 2) //esto era argc = 1 pero hubo problema linux 
-	{
-		printf("ERROR\n");
-		printf("less that to numbers\n");
+	if(argc < 3) //esto era argc = 1 pero hubo problema linux 
 		return(0);
-	}
 	if(check_num(argv) == 0)
 	{
 		printf("Only numbers are allowed\n");
@@ -68,8 +64,8 @@ int main(int argc, char *argv[]) //puede que la primera parte de esta funcio vay
 //	printf("TEST PUSH/POP\n");
 	if (!sorted_check(argc, &s2, &b))
 	{
-		printf("ya estaban ordenados\n");
-		print_stack(s2);
+//		printf("ya estaban ordenados\n");
+//		print_stack(s2);
 		return (0);
 	}
 	print_stack(s2);
