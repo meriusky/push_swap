@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:41:15 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/22 12:13:57 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/03/09 17:50:14 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	sorting(int argc, t_stack **s2, t_stack **b)
 		*s2 = four_num(*s2, *b);
 	if(argc - 1 == 5)
 		*s2 = five_num(*s2, *b);
+	if(argc - 1 == 6)
+		*s2 = sort_more_than_five(*s2, *b)// quizas hay que pasat argc
 }
 
 t_stack		*two_num(t_stack *s2)
@@ -89,7 +91,7 @@ t_stack	*three_num_2ndpart(t_stack *s2, t_elem *p1, t_elem *p2, t_elem *p3)
 		}
 	return(s2);
 }
-t_stack		*four_num(t_stack *s2, t_stack *b)//busco el pequeno y lo paso a un atsack b
+t_stack		*four_num(t_stack *s2, t_stack *b)//busco el pequeno y lo paso a una stack b
 {
 	t_elem *p1;
 	t_elem *p2;

@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:24:34 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/22 11:09:34 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/03/09 17:50:18 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ typedef struct s_elem
 {
         int             value;
         struct s_elem   *next;
+		int				position;
 }t_elem;
 
 typedef struct s_stack
@@ -57,3 +58,4 @@ t_stack	*four_num_2ndpart(t_stack *s2, t_stack *b);
 t_stack	*five_num(t_stack *s2, t_stack *b);
 t_stack	*five_num_2ndpart(t_stack *s2, t_stack *b);
 t_stack	*five_num_3rdpart(t_stack *s2, t_stack *b);
+int		sort_more_than_five(t_stack *s2, t_stack *b);
