@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:15:51 by mehernan          #+#    #+#             */
-/*   Updated: 2023/03/09 15:49:10 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/03/13 20:00:25 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "impl_stack.h"
@@ -23,9 +23,10 @@ void	print_stack(t_stack *s)// esta funcion acabara desapareciendo, ya que hay q
 	elem = s->first;
 	while (elem != NULL)
 	{
-		printf("Elem: %d\n", elem->value);
+		printf("Elem: %d\tPos: %d\n", elem->value, elem->position);
 		elem = elem->next;
 	}
+	printf("\n");
 }
 int main(int argc, char *argv[]) //puede que la primera parte de esta funcio vaya a impl_stack.c
 {

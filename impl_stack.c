@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 14:44:55 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/22 12:12:02 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/03/13 18:38:52 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	push(t_stack *s, int value) //añade un elemento a la stack//es necesario q
 	//	return(NULL);
 	newelem->next = NULL;// para  que next no tenga un valor erroneo, y vaya a algo de memoria que no debes usar
 	newelem->value = value;
+	newelem->position = 0;
 	if (s->first == NULL)
 		s->first = newelem;
 	else

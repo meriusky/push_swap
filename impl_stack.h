@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:24:34 by mehernan          #+#    #+#             */
-/*   Updated: 2023/03/09 17:50:18 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/03/13 20:00:25 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,4 @@ t_stack	*four_num_2ndpart(t_stack *s2, t_stack *b);
 t_stack	*five_num(t_stack *s2, t_stack *b);
 t_stack	*five_num_2ndpart(t_stack *s2, t_stack *b);
 t_stack	*five_num_3rdpart(t_stack *s2, t_stack *b);
-int		sort_more_than_five(t_stack *s2, t_stack *b);
+void	give_position(t_stack **s2);

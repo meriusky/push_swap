@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:41:15 by mehernan          #+#    #+#             */
-/*   Updated: 2023/03/09 17:50:14 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/03/13 20:00:25 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	sorted_check(int argc, t_stack **s2, t_stack **b)
 	if (tmp->next == NULL)
 		return (0);
 //si no cumpe las condiciones para estar ordenado, se va a ser ordenado
+	give_position(s2);
 	sorting(argc, s2, b);
 	return (1);
 }
@@ -41,8 +42,8 @@ void	sorting(int argc, t_stack **s2, t_stack **b)
 		*s2 = four_num(*s2, *b);
 	if(argc - 1 == 5)
 		*s2 = five_num(*s2, *b);
-	if(argc - 1 == 6)
-		*s2 = sort_more_than_five(*s2, *b)// quizas hay que pasat argc
+//	if(argc - 1 == 6)
+//		*s2 = sort_more_than_five(*s2, *b);// quizas hay que pasat argc
 }
 
 t_stack		*two_num(t_stack *s2)
