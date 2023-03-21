@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:15:51 by mehernan          #+#    #+#             */
-/*   Updated: 2023/03/13 20:00:25 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/03/21 19:04:23 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "impl_stack.h"
@@ -69,7 +69,7 @@ int main(int argc, char *argv[]) //puede que la primera parte de esta funcio vay
 //		print_stack(s2);
 		return (0);
 	}
-	print_stack(s2);
+//	print_stack(s2);
 //FIN DE LA PRIMERA PARTE
 //	print_stack(s2);
 //	printf("%d\n", get_top(s2));

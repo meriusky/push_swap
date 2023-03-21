@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:24:34 by mehernan          #+#    #+#             */
-/*   Updated: 2023/03/13 20:00:25 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/03/21 19:22:00 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,7 @@ t_stack	*four_num_2ndpart(t_stack *s2, t_stack *b);
 t_stack	*five_num(t_stack *s2, t_stack *b);
 t_stack	*five_num_2ndpart(t_stack *s2, t_stack *b);
 t_stack	*five_num_3rdpart(t_stack *s2, t_stack *b);
+void	six_to_hundred(t_stack **s2, t_stack **b);
 void	give_position(t_stack **s2);
+void	give_position_2nd(t_stack **s2, t_elem **count, t_elem **temp, int *pos);
+void	give_position_3rd(t_elem **count, t_elem **temp);

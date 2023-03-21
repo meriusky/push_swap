@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 14:44:55 by mehernan          #+#    #+#             */
-/*   Updated: 2023/03/13 18:38:52 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/03/21 19:22:02 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ void	sa(t_stack *s1) //swap, intercambia los dos primeros elementos de A
 //	temp = s1->first->next;
 //	s1->first->next = s2->first->next;
 //	s2->first->next = temp;
+	printf("sa\n");
 }
 void	sb(t_stack *s2) // lo mismo que sa
 {
@@ -107,6 +108,7 @@ void	sb(t_stack *s2) // lo mismo que sa
 	s2->first = s2->first->next;
 	s2->first->next = temp;
 	s2->first->next->next = third; 
+	printf("sb\n");
 }
 void	ss(t_stack *s1, t_stack *s2) //sa y sb a la vez
 {
@@ -125,6 +127,7 @@ void	pa(t_stack *s1, t_stack *s2)// coge el primer elemento de B y lo pone en pr
 	s1->first = temp; // finalmente adjudicamos a temp la priemra posicion y como previamente hemos hecho que temp senale al siguiente esta todo hehco
 	s1->size += 1;
 	s2->size -= 1;
+	printf("pa\n");
 }
 
 void	ra(t_stack *s1)//sube todos los numeros una posicioon y el primero lo pone el ultimo
@@ -139,6 +142,7 @@ void	ra(t_stack *s1)//sube todos los numeros una posicioon y el primero lo pone 
 	s1->first = s1->first->next; //la primera caja ahora apunta a la segunda
 	penultimate_elem->next->next = temp; // temp debe ser el ultimo
 	penultimate_elem->next->next->next = NULL; // y ahora anadimos al ultimo de todo null
+	printf("ra\n");
 }
 void	pb(t_stack *s1, t_stack *s2) // coge el primer elemento de A y lo pone en primera posicion de B
 {
@@ -152,6 +156,7 @@ void	pb(t_stack *s1, t_stack *s2) // coge el primer elemento de A y lo pone en p
 	s2->first = temp;
 	s1->size -= 1;
 	s2->size += 1;
+	printf("pb\n");
 }
 
 void	rb(t_stack *s2)
@@ -166,6 +171,7 @@ void	rb(t_stack *s2)
 	s2->first = s2->first->next;
 	penultimate_elem->next->next = temp;
 	penultimate_elem->next->next->next = NULL;
+	printf("rb\n");
 }
 void rr(t_stack *s1, t_stack *s2)
 {
@@ -199,6 +205,7 @@ void	rra(t_stack *s1) //rota el ultimo y lo pone arriba
 	s1->first = penultimate_elem->next;
 	s1->first->next = temp;
 	penultimate_elem->next = NULL;
+	printf("rra\n");
 }
 void	rrb(t_stack *s2) 
 {
@@ -212,6 +219,7 @@ void	rrb(t_stack *s2)
 	s2->first = penultimate_elem->next;
 	s2->first->next = temp;
 	penultimate_elem->next = NULL;
+	printf("rrb\n");
 }
 void	rrr(t_stack *s1, t_stack *s2)
 {
