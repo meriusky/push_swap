@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 11:26:25 by mehernan          #+#    #+#             */
-/*   Updated: 2023/03/21 19:21:56 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/03/23 18:25:21 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,32 +17,31 @@
 // Llevar cada grupo a la stack b
 // Llevar de vuelta todos los numeros a la stack uno por uno de mayor a menor
 
-void	six_to_hundred(t_stack **s2, t_stack **b)//quizas es **X pero no lo se seguro, quizas no es int y es t_stack
+void	six_to_hundred(t_stack **s2, t_stack **b)
 {
-	int		pos;
-	int		size;
-	int		group;
-	int		count;
-	t_elem	*temp;
+	int		pos;//posicion real de los umeros que se va rcorriendo
+	int		size;//size fijo de la stack
+	int		group;//valor para comparar la position, cantidad de numeos en la qu se divide un grupo
+	int		count;//numero de numeros paado con pb
+	t_elem	*temp;//variable temporal random
 
-//	printf("Here\n");
-	pos = 1;
+	pos = 0;
 	temp = (*s2)->first;
-	size = (*s2)->size; //size fijo de la stack antes del bucle
-	group = ((*s2)->size / 3); //valor para comparar el position
-	count = 0; //numero de numeros passados con pb
-	while((*s2)->size != 0) //esta mal pero la idea es delimitar cuatos hay que coger por grupo. La cosa es coger la 3a parte
+	size = (*s2)->size;
+	group = ((*s2)->size / 3);
+	count = 0; 
+	while((*s2)->size != 0)//mientras el tamano de size no sea zero
 	{
-		if (temp->position <= group)
+		if (temp->position <= group)// posicion de temp es mas pequena o igual que grup,es que esta dentro de lo que queremos coger
 		{
 			if (pos == 0)
 			{
 				pb(*s2, *b);
-				if (temp->position > (group - (size / 3)) && temp->position <= (group - (size / 3 / 2)))
-					rb(*b);
+//				if (temp->position > (group - (size / 3)) && temp->position <= (group - (size / 3 / 2)))
+//					rb(*b);
 				count++;
 			}
-			if (pos <= (*s2)->size)
+			if (pos <= (*s2)->size / 2)
 				ra(*s2);
 			else
 				rra(*s2);
