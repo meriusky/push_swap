@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 11:26:25 by mehernan          #+#    #+#             */
-/*   Updated: 2023/03/23 18:25:21 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/04/01 19:29:05 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,18 @@ void	six_to_hundred(t_stack **s2, t_stack **b)
 			if (pos == 0)
 			{
 				pb(*s2, *b);
-//				if (temp->position > (group - (size / 3)) && temp->position <= (group - (size / 3 / 2)))
-//					rb(*b);
+				if (temp->position > (group - (size / 3)) && temp->position <= (group - (size / 3 / 2)))
+					rb(*b);//en caso de que temp position este abajo hay que moverlo a arriba para hacer pb y por lo tanto que se vayan colocando en Stack B
 				count++;
 			}
 			if (pos <= (*s2)->size / 2)
-				ra(*s2);
+				ra(*s2);//en caso de que pos no sea 0, que queremos qe sea 0 para hacer pb, haz ra para que ses pos 0
 			else
-				rra(*s2);
+				rra(*s2);// si lo primero no es pues rra porque estra abajo del todo
 			temp = (*s2)->first;
 			pos = 0;
 		}
-		else
+		else//todo esto para que cuando ya ha acabado la movida pasar a la siguiente posicion y seguir
 		{
 			temp = temp->next;
 			pos++;
