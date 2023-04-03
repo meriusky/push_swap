@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:15:51 by mehernan          #+#    #+#             */
-/*   Updated: 2023/03/21 19:04:23 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:56:01 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "impl_stack.h"
@@ -28,7 +28,7 @@ void	print_stack(t_stack *s)// esta funcion acabara desapareciendo, ya que hay q
 	}
 	printf("\n");
 }
-int main(int argc, char *argv[]) //puede que la primera parte de esta funcio vaya a impl_stack.c
+int main(int argc, char *argv[])
 {
 	if(argc < 3) //esto era argc = 1 pero hubo problema linux 
 		return(0);
@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) //puede que la primera parte de esta funcio vay
 	int i;
 
 	i = 1;
-	while (argv[i] != NULL)//Hacemos while para poder paras un * en vez de doble**, para que lo pase a int
+	while (argv[i] != NULL)//Hacemos while para poder passar un * en vez de doble**, para que lo pase a int
 	{
 		push(s2, converter(argv[i]));
 		i++;
@@ -69,7 +69,10 @@ int main(int argc, char *argv[]) //puede que la primera parte de esta funcio vay
 //		print_stack(s2);
 		return (0);
 	}
-//	print_stack(s2);
+	printf("A\n");
+	print_stack(s2);
+	printf("B\n");
+	print_stack(b);
 //FIN DE LA PRIMERA PARTE
 //	print_stack(s2);
 //	printf("%d\n", get_top(s2));

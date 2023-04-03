@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 11:26:25 by mehernan          #+#    #+#             */
-/*   Updated: 2023/04/01 19:29:05 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/04/03 18:01:20 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	six_to_hundred(t_stack **s2, t_stack **b)
 	int		size;//size fijo de la stack
 	int		group;//valor para comparar la position, cantidad de numeos en la qu se divide un grupo
 	int		count;//numero de numeros paado con pb
-	t_elem	*temp;//variable temporal random
+	t_elem	*temp;//variable temporal primer elemento de s2(A)
 
 	pos = 0;
 	temp = (*s2)->first;
@@ -59,6 +59,17 @@ void	six_to_hundred(t_stack **s2, t_stack **b)
 //	print_stack(s2);
 //	print_stack(b);
 }
+void	push_back_to_A(t_stack **s2, t_stack **b)
+{
+	t_elem	*tempb //variable temporal sobre el primer elemento de B
+	int		sizeb //tamano de la stack b
+
+	tempb = (*b)->first;
+	sizeb = (*b)->size;
+	if(tempb->value == size)//no estoy segura si dejar solo el tempb o tempb->value
+		pa(*s2, *b);
+	//hay que seguir recorrindo la stack buscando el que sea igual a la size
+}
 
 //Buscar el numero mas pequeno y darle 1 de posicion
 //seguir asi adelante
@@ -91,7 +102,10 @@ void	give_position(t_stack **s2)//ns si esta bien
 void	give_position_2nd(t_stack **s2, t_elem **count, t_elem **temp, int *pos)
 {
 	if ((*temp)->value > (*count)->value && (*count)->position == 0)//si temp es mayor al valor del que se compara i la posicion de este es 0, es decir que no se ha guardado aun, que se guarde ya que eso quiere decir que el ultimo de la estac es mas pequeno que el actual temp asi que le damos una posicion a count
+	{
 		(*count)->position = *pos;
+		*pos = *pos + 1;
+	}
 	else//si lo anterior no sucede pues hacemos lo mismo solo que guardando el teo en vez de el count
 	{
 		(*temp)->position = *pos;
@@ -104,7 +118,7 @@ void	give_position_2nd(t_stack **s2, t_elem **count, t_elem **temp, int *pos)
 void	give_position_3rd(t_elem **count, t_elem **temp)
 {
 	if ((*count)->position != 0)// si se da el caso que count ya ha sido guardado no debemos comparar temp con ese asi que avanzamos el count al siguiente
-	(*count) = (*count)->next;
+		(*count) = (*count)->next;
 	else
 	{
 		(*temp) = (*count);//si no entra, el valor de count es menor, asi que temp sea count mejor que dar vueltas xd
