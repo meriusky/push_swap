@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 11:26:25 by mehernan          #+#    #+#             */
-/*   Updated: 2023/04/03 18:01:20 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/04/06 19:29:45 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	six_to_hundred(t_stack **s2, t_stack **b)
 	int		pos;//posicion real de los umeros que se va rcorriendo
 	int		size;//size fijo de la stack
 	int		group;//valor para comparar la position, cantidad de numeos en la qu se divide un grupo
-	int		count;//numero de numeros paado con pb
+	int		count;//numero de numeros pasados con pb
 	t_elem	*temp;//variable temporal primer elemento de s2(A)
 
 	pos = 0;
@@ -56,19 +56,74 @@ void	six_to_hundred(t_stack **s2, t_stack **b)
 		if (count == group)
 			group = group + (size / 3);
 	}
+	push_back_to_A(s2, b);
 //	print_stack(s2);
 //	print_stack(b);
 }
 void	push_back_to_A(t_stack **s2, t_stack **b)
 {
-	t_elem	*tempb //variable temporal sobre el primer elemento de B
-	int		sizeb //tamano de la stack b
+	t_elem	*tempb; //variable temporal sobre el primer elemento de B
+	int		flag;
+	int		count;
 
 	tempb = (*b)->first;
-	sizeb = (*b)->size;
-	if(tempb->value == size)//no estoy segura si dejar solo el tempb o tempb->value
-		pa(*s2, *b);
-	//hay que seguir recorrindo la stack buscando el que sea igual a la size
+	flag = 0;
+	count = 1;// es uno, ya que en un futuro lo usaremoos para saber si un num sta a la mitad y al dividir, 0 n se cuenta como num
+	while ((*b)->size)
+	{
+		if((*b)->first->position == ((*b)->size - 1) && flag == 0)
+		{
+			pa(*s2, *b);
+			flag = 1;
+			tempb = (*b)->first;
+		}
+		else
+		{
+			if(tempb->position == (*b)->size && flag == 0)//no estoy segura si dejar solo el tempb o tempb->value
+			{
+				if(count == 1)
+				{
+					pa(*s2, *b);
+					tempb = (*b)->first;
+					count = 1;
+				}
+				else
+				{
+					if(count <= (((*b)->size) / 2))
+						rb(*b);
+					else
+						rrb(*b);
+					tempb = (*b)->first;
+					count = 1;
+				}
+			}
+			else if (tempb->position == ((*b)->size + 1) && flag == 1)
+			{
+				if(count == 1)
+				{
+					pa(*s2, *b);
+					sa(*s2);
+					tempb = (*b)->first;
+					flag = 0;
+					count = 1;
+				}
+				else
+				{
+					if(count <= (((*b)->size) / 2))
+						rb(*b);
+					else
+						rrb(*b);
+					tempb = (*b)->first;
+					count = 1;
+				}
+			}
+			else
+			{
+				tempb = tempb->next;
+				count++;
+			}
+		}
+	}
 }
 
 //Buscar el numero mas pequeno y darle 1 de posicion

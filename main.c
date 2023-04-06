@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:15:51 by mehernan          #+#    #+#             */
-/*   Updated: 2023/04/03 17:56:01 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/04/06 19:29:47 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "impl_stack.h"
@@ -62,17 +62,23 @@ int main(int argc, char *argv[])
 		push(s2, converter(argv[i]));
 		i++;
 	}
-//	printf("TEST PUSH/POP\n");
+//	printf("A\n");
+//	print_stack(s2);
+//	printf("B\n");
+//	print_stack(b);
+//	printf("\n");
+	printf("TEST PUSH/POP\n");
 	if (!sorted_check(argc, &s2, &b))
 	{
 //		printf("ya estaban ordenados\n");
 //		print_stack(s2);
 		return (0);
 	}
-	printf("A\n");
-	print_stack(s2);
-	printf("B\n");
-	print_stack(b);
+//	printf("A\n");
+//	print_stack(s2);
+//	printf("B\n");
+//	print_stack(b);
+//	printf("\n");
 //FIN DE LA PRIMERA PARTE
 //	print_stack(s2);
 //	printf("%d\n", get_top(s2));
