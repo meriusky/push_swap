@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:24:34 by mehernan          #+#    #+#             */
-/*   Updated: 2023/04/06 19:05:47 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/04/09 19:27:45 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,3 +63,4 @@ void	give_position(t_stack **s2);
 void	give_position_2nd(t_stack **s2, t_elem **count, t_elem **temp, int *pos);
 void	give_position_3rd(t_elem **count, t_elem **temp);
 void	push_back_to_A(t_stack **s2, t_stack **b);
+void	more_than_hundred(t_stack **s2, t_stack **b);
