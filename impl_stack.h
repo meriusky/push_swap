@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:24:34 by mehernan          #+#    #+#             */
-/*   Updated: 2023/04/09 19:27:45 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/04/10 19:50:40 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,13 @@ t_stack	*five_num(t_stack *s2, t_stack *b);
 t_stack	*five_num_2ndpart(t_stack *s2, t_stack *b);
 t_stack	*five_num_3rdpart(t_stack *s2, t_stack *b);
 void	six_to_hundred(t_stack **s2, t_stack **b);
+int		first_pos(t_stack **s2, t_stack **b, t_elem **temp, int *arr);
+int		make_move(t_stack **s2, t_elem **temp, int *arr);
 void	give_position(t_stack **s2);
 void	give_position_2nd(t_stack **s2, t_elem **count, t_elem **temp, int *pos);
 void	give_position_3rd(t_elem **count, t_elem **temp);
 void	push_back_to_A(t_stack **s2, t_stack **b);
+void	push_back_to_A_2ndpart(t_stack **s2, t_stack **b, t_elem **tempb, int *count);
+void	push_back_to_A_3rdpart(t_stack **s2, t_stack **b, t_elem **tempb, int *flag, int *count);
+void	push_back_to_A_4thpart(t_elem **tempb, int *count);
 void	more_than_hundred(t_stack **s2, t_stack **b);

@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 11:26:25 by mehernan          #+#    #+#             */
-/*   Updated: 2023/04/09 19:54:31 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/04/10 19:50:37 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,49 +17,55 @@
 // Llevar cada grupo a la stack b
 // Llevar de vuelta todos los numeros a la stack uno por uno de mayor a menor
 
+// void	push_numbers_to_B(t_stack **s2, t_stack **b, t_elem *temp, int *arr);
+
 void	six_to_hundred(t_stack **s2, t_stack **b)
 {
-	int		pos;//posicion real de los numeros que se va recorriendo
-	int		size;//size fijo de la stack
-	int		group;//valor para comparar la position, cantidad de numeos en la qu se divide un grupo
-	int		count;//numero de numeros pasados con pb
+	int		arr[4];
 	t_elem	*temp;//variable temporal primer elemento de s2(A)
 
-	pos = 0;
+	arr[0] = 0;	// (pos) posicion real de los numeros que se va recorriendo
+	arr[1] = 0; // (count) numero de numeros pasados con pb
+	arr[2] = (*s2)->size; // (size) size fijo de la stack
+	arr[3] = ((*s2)->size / 3); // (group) valor para comparar la position, cantidad de numeos en la qu se divide un grupo
 	temp = (*s2)->first;
-	size = (*s2)->size;
-	group = ((*s2)->size / 3);
-	count = 0; 
 	while((*s2)->size != 0)//mientras el tamano de size no sea zero
 	{
-		if (temp->position <= group)// posicion de temp es mas pequena o igual que grup,es que esta dentro de lo que queremos coger
-		{
-			if (pos == 0)
-			{
-				pb(*s2, *b);
-				if (temp->position > (group - (size / 3)) && temp->position <= (group - (size / 3 / 2)))
-					rb(*b);//en caso de que temp position este abajo hay que moverlo a arriba para hacer pb y por lo tanto que se vayan colocando en Stack B
-				count++;
-			}
-			if (pos <= (*s2)->size / 2)
-				ra(*s2);//en caso de que pos no sea 0, que queremos qe sea 0 para hacer pb, haz ra para que ses pos 0
-			else
-				rra(*s2);// si lo primero no es pues rra porque estra abajo del todo
-			temp = (*s2)->first;
-			pos = 0;
-		}
-		else//todo esto para que cuando ya ha acabado la movida pasar a la siguiente posicion y seguir
+		if (temp->position <= arr[3])// posicion de temp es mas pequena o igual que grup,es que esta dentro de lo que queremos coger
+		{	
+			if (arr[0] == 0)
+				arr[1] = first_pos(s2, b, &temp, arr);
+			arr[0] = make_move(s2, &temp, arr);
+		} 
+		else //todo esto para que cuando ya ha acabado la movida pasar a la siguiente posicion y seguir
 		{
 			temp = temp->next;
-			pos++;
+			arr[0]++;
 		}
-		if (count == group)
-			group = group + (size / 3);
+		if (arr[1] == arr[3])
+			arr[3] = arr[3] + (arr[2] / 3);
 	}
 	push_back_to_A(s2, b);
-//	print_stack(s2);
-//	print_stack(b);
 }
+
+int	first_pos(t_stack **s2, t_stack **b, t_elem **temp, int *arr)//cuando la posicion es 0
+{
+	pb(*s2, *b);
+	if ((*temp)->position > (arr[3] - (arr[2] / 3)) && (*temp)->position <= (arr[3] - (arr[2] / 3 / 2)))
+		rb(*b);//en caso de que temp position este abajo hay que moverlo a arriba para hacer pb y por lo tanto que se vayan colocando en Stack B
+	return (arr[1] + 1);
+}
+
+int	make_move(t_stack **s2, t_elem **temp, int *arr)//para mover ra rra
+{
+	if (arr[0] <= (*s2)->size / 2)
+		ra(*s2);//en caso de que pos no sea 0, que queremos qe sea 0 para hacer pb, haz ra para que ses pos 0
+	else
+		rra(*s2);// si lo primero no es pues rra porque estra abajo del todo
+	(*temp) = (*s2)->first;
+	return (0);
+}
+
 void	push_back_to_A(t_stack **s2, t_stack **b)
 {
 	t_elem	*tempb; //variable temporal sobre el primer elemento de B
@@ -79,56 +85,60 @@ void	push_back_to_A(t_stack **s2, t_stack **b)
 		}
 		else
 		{
-			if(tempb->position == (*b)->size && flag == 0)
-			{
-				if(count == 1)//es decir esta en la primera posicion, ya que no necesitamos recorrer nada ya que el num que queremos esta al inicio
-				{
-					pa(*s2, *b);
-					tempb = (*b)->first;
-					count = 1;
-				}
-				else// con esto lo que hacemos es ir meneanddo el numero que queremos para que llege a ser el primero y pushearlo
-				{
-					if(count <= (((*b)->size) / 2))// dividido para saer si hacer rr o solo r segun lo arriba que este
-						rb(*b);
-					else
-						rrb(*b);
-					tempb = (*b)->first;
-					count = 1;
-				}
-			}//despues de hacer el primer if tienes que buscar el otro numerito, pue este else es para esoe
-			else if (tempb->position == ((*b)->size + 1) && flag == 1)//size +1 ya que hemos pasado ya un numerito asi que no va a ser ==
-			{
-				if(count == 1)
-				{
-					pa(*s2, *b);
-					sa(*s2);
-					tempb = (*b)->first;
-					flag = 0;
-					count = 1;
-				}
-				else
-				{
-					if(count <= (((*b)->size) / 2))
-						rb(*b);
-					else
-						rrb(*b);
-					tempb = (*b)->first;
-					count = 1;
-				}
-			}
-			else
-			{
-				tempb = tempb->next;
-				count++;
-			}
+		if(tempb->position == (*b)->size && flag == 0)
+				push_back_to_A_2ndpart(s2, b, &tempb, &count);
+		else if (tempb->position == ((*b)->size + 1) && flag == 1)//size +1 ya que hemos pasado ya un numerito asi que no va a ser ==
+				push_back_to_A_3rdpart(s2, b, &tempb, &flag, &count);
+		else
+				push_back_to_A_4thpart(&tempb, &count);
 		}
 	}
 }
 
 //Buscar el numero mas pequeno y darle 1 de posicion
 //seguir asi adelante
-// 
+void	push_back_to_A_2ndpart(t_stack **s2, t_stack **b, t_elem **tempb, int *count)
+{
+	if(*count == 1)//es decir esta en la primera posicion, ya que no necesitamos recorrer nada ya que el num que queremos esta al inicio
+	{
+		pa(*s2, *b);
+		*tempb = (*b)->first;
+	}
+	else// con esto lo que hacemos es ir meneanddo el numero que queremos para que llege a ser el primero y pushearlo
+	{
+		if(*count <= (((*b)->size) / 2))// dividido para saer si hacer rr o solo r segun lo arriba que este
+			rb(*b);
+		else
+			rrb(*b);
+		*tempb = (*b)->first;
+		*count = 1;
+	}
+}
+void	push_back_to_A_3rdpart(t_stack **s2, t_stack **b, t_elem **tempb, int *flag, int *count)
+{
+	if(*count == 1)
+	{
+		pa(*s2, *b);
+		sa(*s2);
+		*tempb = (*b)->first;
+		*flag = 0;
+	}
+	else
+	{
+		if(*count <= (((*b)->size) / 2))
+			rb(*b);
+		else
+			rrb(*b);
+		*tempb = (*b)->first;
+		*count = 1;
+	}
+}
+void	push_back_to_A_4thpart(t_elem **tempb, int *count)
+{
+	*tempb = (*tempb)->next;
+	*count = *count + 1;
+}
+
 void	give_position(t_stack **s2)//ns si esta bien
 {
 	int		position;// posicion que le asignaremos
