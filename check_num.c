@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:49:43 by mehernan          #+#    #+#             */
-/*   Updated: 2023/02/21 16:11:10 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/04/11 11:42:58 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "impl_stack.h"
@@ -43,7 +43,7 @@ int	check_dplnum(char *c[])
 		j = i + 1;
 		while (c[j] != NULL)
 		{
-			if(ft_atoi(c[i]) == ft_atoi(c[j]))
+			if (ft_atoi(c[i]) == ft_atoi(c[j]))
 				return (0);
 			j++;
 		}
@@ -54,9 +54,9 @@ int	check_dplnum(char *c[])
 
 int	check_int(char *c[])//result = result * 10 + str[x]
 {
-	long check;
-	int count;
-	int i;
+	long	check;
+	int		count;
+	int		i;
 
 	i = 1;
 	while (c[i] != NULL)
@@ -65,10 +65,10 @@ int	check_int(char *c[])//result = result * 10 + str[x]
 		count = 0;
 		while (c[i][count] != 0)
 		{
-			if(ft_strlen(c[i]) > 11)//para controlar si es mas largo de 11
+			if (ft_strlen(c[i]) > 11) //para controlar si es mas largo de 11
 				return (0);
 			check = (check * 10) + (c[i][count] - '0');//para que sea int
-			if(check > 2147483647 || check < -2147483648)
+			if (check > 2147483647 || check < -2147483648)
 				return (0);
 			count++;
 		}
@@ -76,6 +76,7 @@ int	check_int(char *c[])//result = result * 10 + str[x]
 	}
 	return (1);
 }
+
 int	ft_atoi(const char *str)
 {
 	int	count;

@@ -6,25 +6,26 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 14:44:55 by mehernan          #+#    #+#             */
-/*   Updated: 2023/04/09 19:54:31 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/04/11 12:38:46 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "impl_stack.h"
 #include <stdlib.h>
 
-t_stack	*init_stack()
+t_stack	*init_stack(void)
 {
 	t_stack	*save;
 
 	save = malloc(sizeof(t_stack));
-	if(!save)
-		return(NULL);
+	if (!save)
+		return (NULL);
 	save->size = 0;
 	save->first = NULL;
-	return(save);
+	return (save);
 }
 //Todas las funciones son void, pero puede que lo dejen de ser
+
 void	push(t_stack *s, int value) //añade un elemento a la stack//es necesario que sea al reves
 {
 	t_elem	*newelem;
@@ -48,7 +49,6 @@ void	push(t_stack *s, int value) //añade un elemento a la stack//es necesario q
 		count->next = newelem;
 	}
 	s->size++;
-
 /*	newelem->value = value; //value esta dentro de newelem
 	newelem->next = s->first; //el siguente elemento al que apunta newelem es el que era el primero en la stack
 	s->first = newelem; //el first elemnto de s(que es la stack, porque la hemos declarado como t_stack) es newelem
@@ -69,160 +69,3 @@ int	get_top(t_stack *s)// funcion que hice para comprovar que el value se ponia 
 	return(s->first->value);
 }
 */
-void	sa(t_stack *s1) //swap, intercambia los dos primeros elementos de A
-{
-	t_elem	*temp;
-	t_elem	*third;
-
-	if(s1->size < 2) // no puede ser menor que 2 porque no puedes swap un elemento solo o 0
-		return;
-	temp = s1->first; //temp ahora senala a first
-	third = s1->first->next->next;
-	s1->first = s1->first->next; //s1 first y s2 first apuntan al mismo sitio
-	s1->first->next = temp; // el segundo elemmento es temp
-	s1->first->next->next = third; //el tercer elemento es third (la 3a caja)
-
-	// s1->first = 57
-	// s2->first = 46
-	// temp = s1->first 
-	// temp = 57
-	// s1->first = s2->first
-	// s1->first = 46
-	// s2->first = 46
-	// s2->first = temp
-	// s2->first = 57
-//	temp = s1->first->next;
-//	s1->first->next = s2->first->next;
-//	s2->first->next = temp;
-	printf("sa\n");
-}
-void	sb(t_stack *s2) // lo mismo que sa
-{
-	t_elem	*temp;
-	t_elem	*third;
-
-	if(s2->size < 2)
-		return;
-	temp = s2->first;
-	third = s2->first->next->next;
-	s2->first = s2->first->next;
-	s2->first->next = temp;
-	s2->first->next->next = third; 
-	printf("sb\n");
-}
-void	ss(t_stack *s1, t_stack *s2) //sa y sb a la vez
-{
-	sa(s1);
-	sb(s2);
-}
-void	pa(t_stack *s1, t_stack *s2)// coge el primer elemento de B y lo pone en primera posicion de A
-{
-	t_elem	*temp;
-
-	if(s2->size == 0) // si no hay nada en B no queremos que haga nada
-		return;
-	temp = s2->first; //primero de todo guaardamos en temp el 1r elemento de B
-	s2->first = s2->first->next; // hacemos que en el puntero del 1r elemento de B senale al 2o
-	temp->next = s1->first; // hacemos que temp senale a next (que aun no hay nada)
-	s1->first = temp; // finalmente adjudicamos a temp la priemra posicion y como previamente hemos hecho que temp senale al siguiente esta todo hehco
-	s1->size += 1;
-	s2->size -= 1;
-	printf("pa\n");
-}
-
-void	ra(t_stack *s1)//sube todos los numeros una posicioon y el primero lo pone el ultimo
-{
-	t_elem	*temp; //temp de temporal
-	t_elem	*penultimate_elem;
-
-	if(s1->size < 2)
-		return;
-	temp = s1->first;
-	penultimate_elem = get_penultimate_elem(s1);
-	s1->first = s1->first->next; //la primera caja ahora apunta a la segunda
-	penultimate_elem->next->next = temp; // temp debe ser el ultimo
-	penultimate_elem->next->next->next = NULL; // y ahora anadimos al ultimo de todo null
-	printf("ra\n");
-}
-void	pb(t_stack *s1, t_stack *s2) // coge el primer elemento de A y lo pone en primera posicion de B
-{
-	t_elem	*temp;
-
-	if(s1->size == 0)
-		return;
-	temp = s1->first;
-	s1->first = s1->first->next;
-	temp->next = s2->first;
-	s2->first = temp;
-	s1->size -= 1;
-	s2->size += 1;
-	printf("pb\n");
-}
-
-void	rb(t_stack *s2)
-{
-	t_elem	*temp;
-	t_elem	*penultimate_elem;
-
-	if(s2->size < 2)
-		return;
-	temp = s2->first;
-	penultimate_elem = get_penultimate_elem(s2);
-	s2->first = s2->first->next;
-	penultimate_elem->next->next = temp;
-	penultimate_elem->next->next->next = NULL;
-	printf("rb\n");
-}
-void rr(t_stack *s1, t_stack *s2)
-{
-	ra(s1);
-	rb(s2);
-}
-t_elem	*get_penultimate_elem(t_stack *s)
-{
-	t_elem	*elem;
-
-	if (s->size < 2)
-		return (NULL);
-	elem = s->first;
-	while (elem != NULL)
-	{
-		if (elem->next->next == NULL)
-			return (elem);
-		elem = elem->next;
-	}
-	return (NULL);
-}
-void	rra(t_stack *s1) //rota el ultimo y lo pone arriba
-{
-	t_elem	*temp;
-	t_elem	*penultimate_elem;
-
-	if (s1->size < 2)
-		return;
-	temp = s1->first;
-	penultimate_elem = get_penultimate_elem(s1);
-	s1->first = penultimate_elem->next;
-	s1->first->next = temp;
-	penultimate_elem->next = NULL;
-	printf("rra\n");
-}
-void	rrb(t_stack *s2) 
-{
-	t_elem	*temp;
-	t_elem	*penultimate_elem;
-
-	if (s2->size < 2)
-		return;
-	temp = s2->first;
-	penultimate_elem = get_penultimate_elem(s2);
-	s2->first = penultimate_elem->next;
-	s2->first->next = temp;
-	penultimate_elem->next = NULL;
-	printf("rrb\n");
-}
-void	rrr(t_stack *s1, t_stack *s2)
-{
-	rra(s1);
-	rrb(s2);
-}

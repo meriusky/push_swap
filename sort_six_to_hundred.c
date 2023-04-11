@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 11:26:25 by mehernan          #+#    #+#             */
-/*   Updated: 2023/04/10 19:50:37 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/04/11 11:18:52 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	six_to_hundred(t_stack **s2, t_stack **b)
 		if (temp->position <= arr[3])// posicion de temp es mas pequena o igual que grup,es que esta dentro de lo que queremos coger
 		{	
 			if (arr[0] == 0)
-				arr[1] = first_pos(s2, b, &temp, arr);
-			arr[0] = make_move(s2, &temp, arr);
+				arr[1] = six_to_hundred_2ndpart(s2, b, &temp, arr);
+			arr[0] = six_to_hundred_3rdpart(s2, &temp, arr);
 		} 
 		else //todo esto para que cuando ya ha acabado la movida pasar a la siguiente posicion y seguir
 		{
@@ -48,7 +48,7 @@ void	six_to_hundred(t_stack **s2, t_stack **b)
 	push_back_to_A(s2, b);
 }
 
-int	first_pos(t_stack **s2, t_stack **b, t_elem **temp, int *arr)//cuando la posicion es 0
+int	six_to_hundred_2ndpart(t_stack **s2, t_stack **b, t_elem **temp, int *arr)//cuando la posicion es 0
 {
 	pb(*s2, *b);
 	if ((*temp)->position > (arr[3] - (arr[2] / 3)) && (*temp)->position <= (arr[3] - (arr[2] / 3 / 2)))
@@ -56,7 +56,7 @@ int	first_pos(t_stack **s2, t_stack **b, t_elem **temp, int *arr)//cuando la pos
 	return (arr[1] + 1);
 }
 
-int	make_move(t_stack **s2, t_elem **temp, int *arr)//para mover ra rra
+int	six_to_hundred_3rdpart(t_stack **s2, t_elem **temp, int *arr)//para mover ra rra
 {
 	if (arr[0] <= (*s2)->size / 2)
 		ra(*s2);//en caso de que pos no sea 0, que queremos qe sea 0 para hacer pb, haz ra para que ses pos 0
