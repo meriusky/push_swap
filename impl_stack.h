@@ -6,28 +6,31 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:24:34 by mehernan          #+#    #+#             */
-/*   Updated: 2023/04/11 11:17:27 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:17:10 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#ifndef IMPL_STACK_H
+# define IMPL_STACK_H
+
+# include <stdio.h>
 
 typedef struct s_elem
 {
-        int             value;
-        struct s_elem   *next;
-		int				position;
-}t_elem;
+	int				value;
+	struct s_elem	*next;
+	int				position;
+}	t_elem;
 
 typedef struct s_stack
 {
-        struct s_elem   *first;
-        int     size;
-}t_stack;
+	int				size;
+	struct s_elem	*first;
+}	t_stack;
 
-t_stack *init_stack();
+t_stack	*init_stack(void);
 void	print_stack(t_stack *s);
-void	push(t_stack *s, int value);
+t_elem	*push(t_stack *s, int value);
 void	pop(t_stack *s);
 int		get_top(t_stack *s);
 void	sa(t_stack *s1);
@@ -59,15 +62,7 @@ t_stack	*five_num(t_stack *s2, t_stack *b);
 t_stack	*five_num_2ndpart(t_stack *s2, t_stack *b);
 t_stack	*five_num_3rdpart(t_stack *s2, t_stack *b);
 void	six_to_hundred(t_stack **s2, t_stack **b);
-int		six_to_hundred_2ndpart(t_stack **s2, t_stack **b, t_elem **temp, int *arr);
-int		six_to_hundred_3rdpart(t_stack **s2, t_elem **temp, int *arr);
 void	give_position(t_stack **s2);
-void	give_position_2nd(t_stack **s2, t_elem **count, t_elem **temp, int *pos);
-void	give_position_3rd(t_elem **count, t_elem **temp);
 void	push_back_to_A(t_stack **s2, t_stack **b);
-void	push_back_to_A_2ndpart(t_stack **s2, t_stack **b, t_elem **tempb, int *count);
-void	push_back_to_A_3rdpart(t_stack **s2, t_stack **b, t_elem **tempb, int *flag, int *count);
-void	push_back_to_A_4thpart(t_elem **tempb, int *count);
 void	more_than_hundred(t_stack **s2, t_stack **b);
-int		more_than_hundred_2ndpart(t_stack **s2, t_stack **b, t_elem **temp, int *arr);
-int		more_than_hundred_3rdpart(t_stack **s2, t_elem **temp, int *arr);
+#endif

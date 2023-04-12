@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:15:51 by mehernan          #+#    #+#             */
-/*   Updated: 2023/04/11 11:22:53 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:14:37 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "impl_stack.h"
@@ -30,21 +30,21 @@ void	print_stack(t_stack *s)// esta funcion acabara desapareciendo, ya que hay q
 }
 int main(int argc, char *argv[])
 {
-	if(argc < 3) //esto era argc = 1 pero hubo problema linux 
-		return(0);
-	if(check_num(argv) == 0)
+	if (argc < 3) //esto era argc = 1 pero hubo problema linux 
+		return (0);
+	if (check_num(argv) == 0)
 	{
 		printf("Only numbers are allowed\n");
 		printf("ERROR\n");
 		return (0);
 	}
-	if(check_int(argv) == 0)
+	if (check_int(argv) == 0)
 	{
 		printf("Just int size allowed\n");
 		printf("ERROR\n");
 		return (0);
 	}
-	if(check_dplnum(argv) == 0)
+	if (check_dplnum(argv) == 0)
 	{
 		printf("Duplicate numbers not allowed\n");
 		printf("ERROR\n");

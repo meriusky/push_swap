@@ -6,7 +6,7 @@
 /*   By: mehernan <mehernan@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 14:44:55 by mehernan          #+#    #+#             */
-/*   Updated: 2023/04/11 12:38:46 by mehernan         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:17:12 by mehernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ t_stack	*init_stack(void)
 }
 //Todas las funciones son void, pero puede que lo dejen de ser
 
-void	push(t_stack *s, int value) //añade un elemento a la stack//es necesario que sea al reves
+t_elem	*push(t_stack *s, int value) //añade un elemento a la stack//es necesario que sea al reves
 {
 	t_elem	*newelem;
 	t_elem	*count;
 
 	newelem = malloc(sizeof(t_elem));
-	//if(!newelem)         //NO QUITAR, comentado porque la funcion es VOID cuando no lo sea servira
-	//	return(NULL);
+	if (!newelem)         //NO QUITAR, comentado porque la funcion es VOID cuando no lo sea servira
+		return(NULL);
 	newelem->next = NULL;// para  que next no tenga un valor erroneo, y vaya a algo de memoria que no debes usar
 	newelem->value = value;
 	newelem->position = 0;
@@ -49,11 +49,13 @@ void	push(t_stack *s, int value) //añade un elemento a la stack//es necesario q
 		count->next = newelem;
 	}
 	s->size++;
+	return (newelem);
 /*	newelem->value = value; //value esta dentro de newelem
 	newelem->next = s->first; //el siguente elemento al que apunta newelem es el que era el primero en la stack
 	s->first = newelem; //el first elemnto de s(que es la stack, porque la hemos declarado como t_stack) es newelem
 	s->size++; //s suma size cada vez que haya un newelem evidentemente*/
 }
+
 void	pop(t_stack *s)
 {
 	t_elem	*first; // si,una estructura puede ser puntero
